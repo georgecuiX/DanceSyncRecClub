@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import './AdminLogin.css'; 
 
 export const AdminLogin = () => {
@@ -23,6 +24,7 @@ export const AdminLogin = () => {
         console.log('Attempting login with:', credentials);
         // Here you would typically handle the login, e.g., send the credentials to your server
         alert('Succesful Login');
+        navigate('/adminHome'); // Use useNavigate() hook to redirect after login
     };
 
     const handleBack = () => {
@@ -31,8 +33,7 @@ export const AdminLogin = () => {
 
     return (
         <div>
-            <h1>Welcome to the Admin Login Page</h1>
-            <p>Enter your username and password to proceed</p>
+            <Navbar />
             <form onSubmit={handleSubmit}>
                 <label>
                     Username:
