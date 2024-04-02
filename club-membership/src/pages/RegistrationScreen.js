@@ -42,6 +42,8 @@ const RegistrationScreen = () => {
 
       return (
         <form onSubmit={handleSubmit}>
+          <h1>Welcome to the Registration Page</h1>
+            <p>Enter your information to proceed</p>
           <label>
             First Name:
             <input type="text" name="firstName" value={formState.firstName} onChange={handleChange} required />
