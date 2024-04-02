@@ -12,11 +12,11 @@ const WelcomeScreen = () => {
           <button>Register for a New Account</button>
         </Link>
         {/* Add Log in as a Member button */}
-        <Link to="/login-member">
+        <Link to="/login">
           <button>Log in as a Member</button>
         </Link>
         {/* Add Log in as an Admin button */}
-        <Link to="/login-admin">
+        <Link to="/admin">
           <button>Log in as an Admin</button>
         </Link>
       </div>
