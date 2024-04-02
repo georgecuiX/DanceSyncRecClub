@@ -6,6 +6,16 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
+.workbench{
+    font-family: "Workbench", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings:
+      "BLED" 0,
+      "SCAN" 0;
+}
+
 .fancy{
     font-family: "Rubik Scribble", system-ui;
     font-weight: 400;
@@ -21,4 +31,26 @@ body {
 .text-10xl{
     font-size: 12rem;
     line-height: 1;
+}
+
+.flex-2{
+    flex: 2;
+}
+
+.transition {
+    transition: all 0.2s ease-in-out;
+  }
+
+.login-button{
+    height: 6rem;
+    width: 14rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: 600;
+    font-size: 1.6rem;
+    border-radius: 15px;
+    background-color: rgb(88, 125, 195);
 }
