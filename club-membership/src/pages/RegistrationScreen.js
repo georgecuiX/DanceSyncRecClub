@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import './RegistrationScreen.css';
 
 const RegistrationScreen = () => {
@@ -42,8 +43,7 @@ const RegistrationScreen = () => {
 
       return (
         <form onSubmit={handleSubmit}>
-          <h1>Welcome to the Registration Page</h1>
-            <p>Enter your information to proceed</p>
+          <Navbar />
           <label>
             First Name:
             <input type="text" name="firstName" value={formState.firstName} onChange={handleChange} required />

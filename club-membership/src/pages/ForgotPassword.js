@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Navbar from '../components/Navbar';
+import './ForgotPassword.css'; 
 
 const ForgotPassword = () => {
     const [formData, setFormData] = useState({
@@ -38,8 +40,7 @@ const ForgotPassword = () => {
 
     return (
         <div>
-            <h1>Reset Your Password</h1>
-            <p>Please enter your username and email address to reset your password.</p>
+            <Navbar />
             <form onSubmit={handleSubmit}>
                 <label>
                     Username:
