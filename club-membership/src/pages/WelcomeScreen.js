@@ -1,23 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './WelcomeScreen.css'; // Import the CSS file
+import Navbar from '../components/Navbar';
 
 const WelcomeScreen = () => {
   return (
-    <div className="welcomeScreen">
-      <h1>Welcome to Our Club!</h1>
-      <p>Select one of the following to proceed</p>
-      <div>
+    <div className=" bg-white pb-52 w-screen flex flex-col text-center ">
+      <Navbar />
+      <div className=' py-72 flex flex-row w-full bg-gray-700 items-center justify-around'>
+        <h1 className=' mt-6 text-white font-bold text-10xl bubblegum'>REC CLUB</h1>
+      </div>
+      <div className=' bg-gray-300 h-screen'>
         <Link to="/register">
-          <button>Register for a New Account</button>
+          <button>Register</button>
         </Link>
-        {/* Add Log in as a Member button */}
         <Link to="/login">
-          <button>Log in as a Member</button>
+          <button>Member Login</button>
         </Link>
-        {/* Add Log in as an Admin button */}
         <Link to="/admin">
-          <button>Log in as an Admin</button>
+          <button>Admin Login</button>
         </Link>
       </div>
     </div>
