@@ -1,0 +1,28 @@
+.registrationScreen {
+    font-family: 'Arial, sans-serif';
+    color: lightblue;
+  }
+
+  form {
+    background-color: lightsteelblue;
+    padding: 20px;
+    border-radius: 8px;
+  }
+  
+  input, select, button {
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+  }
+  
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }

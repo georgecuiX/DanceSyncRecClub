@@ -1,0 +1,9 @@
+.welcomeScreen {
+    font-family: 'Arial, sans-serif';
+    color: lightblue;
+  }
+
+  .welcomeScreen button {
+    margin: 10px; /* Adjust the value as needed */
+  }
+  
