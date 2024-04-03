@@ -1,22 +1,36 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import '../styles/index.css'
 
 const AdminHomePage = () => {
-    const navigate = useNavigate();
-
-    const handleLogout = () => {
-        // Here you would clear the login state/session
-        console.log('User logged out');
-        navigate('/'); // Navigate back to the login or welcome page
-    };
 
     return (
-        <div>
+        <div className="p-5">
             <Navbar />
-            <button onClick={handleLogout}>Logout</button>
+            <div className="space-y-2">
+                <Link to="/financial" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
+                    Financial Management and Reporting
+                </Link>
+                <Link to="/memberMangagement" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
+                    Member Management
+                </Link>
+                <Link to="/practiceScheduler" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
+                    Practice Scheduler and Calendar
+                </Link>
+                <Link to="/userManagement" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
+                    User Role Management
+                </Link>
+                <Link to="/messageSender" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
+                    Communication Center
+                </Link>
+                <Link to="/" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
+                    Log Out
+                </Link>
+            </div>
         </div>
     );
 };
+
 
 export default AdminHomePage;
