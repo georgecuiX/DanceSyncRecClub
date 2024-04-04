@@ -91,7 +91,7 @@ const ForgotPassword = () => {
                     <br />
                     <div className='flex justify-center'>
                         <button type="button" className='px-4 py-4 rounded-xl bg-slate-400 border w-1/5 hover:bg-slate-500 transition' onClick={handleBack}>⬅</button>
-                        <button type="submit" className='px-6 py-4 rounded-xl bg-yellow-300 border px-6 ml-20 hover:bg-green-200 transition'>Update Password</button>
+                        <button type="submit" className='px-6 py-4 rounded-xl bg-yellow-300 border ml-20 hover:bg-green-200 transition'>Update Password</button>
                 </div>
                 </form>
             </div>
