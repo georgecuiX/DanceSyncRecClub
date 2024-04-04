@@ -7,6 +7,18 @@ body {
     margin: 0;
 }
 
+.reddit-mono {
+    font-family: "Reddit Mono", monospace;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.rakkas{
+    font-family: "Rakkas", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .workbench{
     font-family: "Workbench", sans-serif;
     font-optical-sizing: auto;

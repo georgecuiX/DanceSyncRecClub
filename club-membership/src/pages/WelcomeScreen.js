@@ -1,14 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
-import Hiphop from '../assets/hiphop.png'
+import Hiphop from '../assets/hiphop.png';
+import Footer from '../components/Footer';
 
 const WelcomeScreen = () => {
   return (
     <div className=" bg-white w-screen flex flex-col text-center">
       <Navbar />
       <div className=' py-72 flex flex-row w-full bg-gray-600 items-center justify-around'>
-        <h1 className=' mt-6 text-white font-bold text-10xl workbench'>REC CLUB</h1>
+        <h1 className=' mt-6 text-white font-bold text-10xl rakkas bg-blue-900 w-full'>REC CLUB</h1>
       </div>
       <div className=' bg-gray-400 py-20 flex justify-between flex-col'>
         <h1 className=' text-8xl text-blue-900 fancy'>Let's GO!</h1>
@@ -25,7 +26,7 @@ const WelcomeScreen = () => {
         </Link>
       </div>
       <div className=' w-screen py-36 text-wrap text-left bg-gray-200'>
-        <h1 className=' text-center text-6xl text-blue-900 font-bold pb-20'>Welcome to Rec Club!</h1>
+        <h1 className=' text-center text-6xl text-blue-900 font-bold pb-20 reddit-mono'>Welcome to Rec Club!</h1>
         <div className='flex justify-evenly flex-ro px-36'>
           <p className=' flex text-wrap text-xl flex-2 text-gray-500'>
           At Rec Club, we're all about the joy of dance and the camaraderie of our tight-knit community. Whether you're a seasoned dancer or just starting out, our club offers a welcoming space for everyone to come together and enjoy the rhythm of life.
@@ -48,6 +49,7 @@ const WelcomeScreen = () => {
           <img className=' flex-1 h-1/4 w-auto' src={Hiphop} alt="dancer" />
         </div>
       </div>
+      <Footer />
     </div>
   );
 };

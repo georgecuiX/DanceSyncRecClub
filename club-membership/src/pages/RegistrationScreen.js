@@ -50,7 +50,7 @@ const RegistrationScreen = () => {
           <div className='flex flex-col items-center bg-gray-700 h-full'>
             <form onSubmit={handleSubmit} className="flex flex-col bg-white p-10 rounded-2xl px-28 py-16 mt-20">
               <div className='flex-1 flex flex-row w-full mb-8'>
-                <h1 className='font-medium text-2xl bg-amber-100 py-1 px-2'>Create An Account.</h1>
+                <h1 className='font-semibold text-xl bg-amber-100 py-1 px-2 reddit-mono'>Create An Account.</h1>
               </div>
               <div className='flex-2 flex justify-center flex-col items-center'>
                 <div className='flex'>

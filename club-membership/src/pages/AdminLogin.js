@@ -37,7 +37,7 @@ export const AdminLogin = () => {
             <div className='flex flex-row h-full'>
                 <form className='flex flex-col box flex-2' onSubmit={handleSubmit}>
                     <div className='flex-1 flex flex-row items-end w-full justify-start pl-20'>
-                    <h1 className=' text-center font-semibold text-6xl bg-red-100 py-1 px-2'>Admin</h1>
+                    <h1 className=' text-center font-semibold text-6xl bg-red-100 py-1 px-2 reddit-mono'>Admin</h1>
                     </div>
                     <div className='flex-3 flex justify-center flex-col'>
                         <label>
@@ -65,7 +65,7 @@ export const AdminLogin = () => {
                         </label>
                         <br />
                         {/* Add "Forgot your password?" link */}
-                        <Link to='/forgotPassword' className=' text-blue-700 hover:text-blue-500'>Forgot your password?</Link>
+                        <Link to='/forgotPassword' className=' text-gray-500 hover:text-blue-500'>Forgot password?</Link>
                         <br />
                         <div className='flex'>
                             <button type="button" className='px-4 py-4 rounded-xl bg-slate-400 border w-1/5 hover:bg-slate-500 transition' onClick={handleBack}>⬅</button>
