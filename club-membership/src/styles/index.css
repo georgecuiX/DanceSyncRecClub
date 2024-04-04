@@ -4,6 +4,7 @@
 
 body {
     font-family: 'Roboto', sans-serif;
+    margin: 0;
 }
 
 .workbench{
@@ -37,6 +38,14 @@ body {
     flex: 2;
 }
 
+.flex-3{
+    flex: 3;
+}
+
+.flex-3{
+    flex: 4;
+}
+
 .transition {
     transition: all 0.2s ease-in-out;
   }
@@ -53,4 +62,22 @@ body {
     font-size: 1.6rem;
     border-radius: 15px;
     background-color: rgb(88, 125, 195);
+}
+
+.border-black{
+    border: 2px black solid;
+}
+
+.box{
+    height: 100vh;
+    background-color: rgb(227, 230, 252);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    align-self: center;
+    padding: 6rem 0;
+}
+
+.login-background{
+    object-fit: contain;
 }
