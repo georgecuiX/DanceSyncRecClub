@@ -24,7 +24,6 @@ export const AdminLogin = () => {
         event.preventDefault();
         console.log('Attempting login with:', credentials);
         // Here you would typically handle the login, e.g., send the credentials to your server
-        alert('Successful Login');
         navigate('/adminHome'); // Use useNavigate() hook to redirect after login
     };
 

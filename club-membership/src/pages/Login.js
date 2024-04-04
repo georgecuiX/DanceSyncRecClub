@@ -24,7 +24,6 @@ export const Login = () => {
         event.preventDefault();
         console.log('Attempting login with:', credentials);
         // Here you would typically handle the login, e.g., send the credentials to your server
-        alert('Successful Login');
         navigate('/memberHome'); // Use useNavigate() hook to redirect after login
     };
 
