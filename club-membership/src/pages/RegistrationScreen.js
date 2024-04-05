@@ -33,10 +33,10 @@ const RegistrationScreen = () => {
             role: 'member',
           });
           if(formState.role === 'member'){
-            navigate('/memberHome');
+            navigate('/member');
           }
           else{
-            navigate('/adminHome');
+            navigate('/admin');
           }
       };
   

@@ -13,11 +13,11 @@ export const WebRoutes = () => {
             <Routes>
                 <Route path='/' element={<WelcomeScreen />} />
                 <Route path='/login' element={<Login />} />
-                <Route path='/admin' element={<AdminLogin />} />
+                <Route path='/admin-login' element={<AdminLogin />} />
                 <Route path='/register' element={<RegistrationScreen />} />
-                <Route path='/forgotPassword' element={<ForgotPassword />} />
-                <Route path='/memberHome' element={<MemberHomePage />} />
-                <Route path='/adminHome' element={<AdminHomePage />} />
+                <Route path='/forgot' element={<ForgotPassword />} />
+                <Route path='/member' element={<MemberHomePage />} />
+                <Route path='/admin' element={<AdminHomePage />} />
                 <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
             </Routes>
         </Router>

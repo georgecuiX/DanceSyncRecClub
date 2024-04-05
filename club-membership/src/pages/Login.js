@@ -24,7 +24,7 @@ export const Login = () => {
         event.preventDefault();
         console.log('Attempting login with:', credentials);
         // Here you would typically handle the login, e.g., send the credentials to your server
-        navigate('/memberHome'); // Use useNavigate() hook to redirect after login
+        navigate('/member'); // Use useNavigate() hook to redirect after login
     };
 
     const handleBack = () => {
@@ -65,7 +65,7 @@ export const Login = () => {
                         </label>
                         <br />
                         {/* Add "Forgot your password?" link */}
-                        <Link to='/forgotPassword' className=' text-gray-500 hover:text-blue-500'>Forgot password?</Link>
+                        <Link to='/forgot' className=' text-gray-500 hover:text-blue-500'>Forgot password?</Link>
                         <br />
                         <div className='flex'>
                             <button type="button" className='px-4 py-4 rounded-xl bg-slate-400 border w-1/5 hover:bg-slate-500 transition' onClick={handleBack}>⬅</button>
