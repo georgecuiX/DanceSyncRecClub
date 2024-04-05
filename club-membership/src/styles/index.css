@@ -114,3 +114,29 @@ body {
 .radio:checked {
     border: 8px solid rgb(4, 73, 211);
   }
+
+.feature-box{
+    background-color: rgb(255, 255, 255);
+    width: 85%;
+    height: 300px;
+    border-radius: 15px;
+    text-align: center;
+    padding-top: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: all 0.15s ease-in-out;
+    font-weight: 700;
+    color: rgb(60, 73, 104);
+}
+
+.feature-box:hover{
+    background-color: aliceblue;
+}
+
+.feature-icon{
+    height: 60%;
+    width: auto;
+    margin-top: 2rem;
+}

@@ -2,31 +2,44 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import '../styles/index.css'
+import Footer from '../components/Footer';
+import Payment from '../assets/payment.png'
 
 const MemberHomePage = () => {
 
     return (
-        <div className="p-5">
+        <div className="h-screen bg-stone-200 overflow-hidden">
             <Navbar />
-            <div className="space-y-2">
-                <Link to="/schedule" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
-                    Upcoming Practices
-                </Link>
-                <Link to="/paymentStatus" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
-                    Payment Status and Options
-                </Link>
-                <Link to="/attendance" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
-                    Attendance
-                </Link>
-                <Link to="/profileManagement" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
-                    User Profile Management
-                </Link>
-                <Link to="/notifications" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
-                    Notifications and Reminders
-                </Link>
-                <Link to="/" className="block p-4 bg-gray-100 border border-gray-200 rounded hover:bg-gray-200 transition-colors">
-                    Log Out
-                </Link>
+            <div className='flex flex-col mt-8'>
+                <div className="grid grid-flow-row grid-cols-3 w-full justify-items-center gap-y-16 px-40">
+                    <Link to="/schedule" className="feature-box">
+                        Upcoming Practices
+                        <img src="https://cdn-icons-png.flaticon.com/512/6117/6117275.png" alt="icon" className='feature-icon' />
+                    </Link>
+                    <Link to="/paymentStatus" className="feature-box">
+                        Payment Status and Options
+                        <img src={Payment} alt="icon" className='feature-icon' />
+                    </Link>
+                    <Link to="/attendance" className="feature-box">
+                        Attendance
+                        <img src="https://cdn-icons-png.flaticon.com/512/8999/8999099.png" alt="icon" className='feature-icon' />
+                    </Link>
+                    <Link to="/profileManagement" className="feature-box">
+                        User Profile Management
+                        <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="icon" className='feature-icon' />
+                    </Link>
+                    <Link to="/notifications" className="feature-box">
+                        Notifications and Reminders
+                        <img src="https://static-00.iconduck.com/assets.00/notification-icon-1842x2048-xr57og4y.png" alt="icon" className='feature-icon' />
+                    </Link>
+                    <Link to="/" className="feature-box">
+                        Log Out
+                        <img src="https://static-00.iconduck.com/assets.00/logout-1-icon-2048x2048-dsthju9g.png" alt="icon" className='feature-icon' />
+                    </Link>
+                </div>
+                <div className='absolute bottom-0'>
+                    <Footer />
+                </div>
             </div>
         </div>
     );
