@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
+import axios from 'axios'
 
 const RegistrationScreen = () => {
     const [formState, setFormState] = useState({
@@ -11,6 +12,8 @@ const RegistrationScreen = () => {
         password: '',
         role: 'member', // Default to 'member'
       });
+
+      const [errorMessage, setErrorMessage] = useState('');
     
       const navigate = useNavigate(); // Step 2: Create an instance of navigate
 
@@ -23,22 +26,37 @@ const RegistrationScreen = () => {
       };
       
       const handleSubmit = (event) => {
-          event.preventDefault();
-          setFormState({
-            firstName: '',
-            lastName: '',
-            email: '',
-            username: '',
-            password: '',
-            role: 'member',
-          });
-          if(formState.role === 'member'){
-            navigate('/member');
+        event.preventDefault();
+        
+        const { firstName, lastName, email, username, password, role } = formState;
+
+        // Send data to backend for registration
+        axios.post('http://localhost:3001/register', {
+            firstName,
+            lastName,
+            email,
+            username,
+            password,
+            role
+        })
+        .then(res => {
+            // Redirect based on role
+            if (role === 'member') {
+                navigate('/member');
+            } else if (role === 'admin') {
+                navigate('/admin');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            // Set error message based on backend response
+          if (error.response && error.response.data && error.response.data.error) {
+              setErrorMessage(error.response.data.error);
+          } else {
+              setErrorMessage('An error occurred while processing your request');
           }
-          else{
-            navigate('/admin');
-          }
-      };
+        });
+    };
   
       const handleBack = () => {
           navigate('/'); // Navigate back to the WelcomeScreen
@@ -53,6 +71,7 @@ const RegistrationScreen = () => {
                 <h1 className='font-semibold text-xl bg-amber-100 py-1 px-2 reddit-mono'>Create An Account.</h1>
               </div>
               <div className='flex-2 flex justify-center flex-col items-center'>
+              {errorMessage && <div className="text-red-500 float-left text-left mb-4">{errorMessage}</div>}
                 <div className='flex'>
                   <label>
                     <input 

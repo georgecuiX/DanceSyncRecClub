@@ -3,12 +3,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import '../styles/index.css'
 import Dancers from '../assets/dancers.png'
+import axios from 'axios';
 
 export const AdminLogin = () => {
     const [credentials, setCredentials] = useState({
         username: '',
         password: '',
     });
+
+    const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate(); // Step 2: Create an instance of navigate
 
@@ -22,9 +25,23 @@ export const AdminLogin = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+    
         console.log('Attempting login with:', credentials);
-        // Here you would typically handle the login, e.g., send the credentials to your server
-        navigate('/admin'); // Use useNavigate() hook to redirect after login
+    
+        const { username, password } = credentials;
+    
+        axios.post('http://localhost:3001/validate-admin-password', { username, password })
+            .then(res => {
+                if (res.data.validation) {
+                    navigate('/admin');
+                } else {
+                    setErrorMessage('Incorrect username or password');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                setErrorMessage('An error occurred while processing your request');
+            });
     };
 
     const handleBack = () => {
@@ -40,6 +57,7 @@ export const AdminLogin = () => {
                     <h1 className=' text-center font-semibold text-6xl bg-red-100 py-1 px-2 reddit-mono'>Admin.</h1>
                     </div>
                     <div className='flex-3 flex justify-center flex-col'>
+                    {errorMessage && <p className="text-red-500 mb-4">{errorMessage}</p>}
                         <label>
                             <input
                                 className=' w-96 h-12 rounded-2xl px-5 border-black focus:outline-none bg-blue-100'
