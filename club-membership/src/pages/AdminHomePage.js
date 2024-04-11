@@ -21,7 +21,7 @@ const AdminHomePage = () => {
                         Member Management
                         <img src="https://static-00.iconduck.com/assets.00/member-icon-2048x2048-ia0jy9lz.png" alt="icon" className='feature-icon' />
                     </Link>
-                    <Link to="/practiceScheduler" className="feature-box">
+                    <Link to='/schedulePractice' className="feature-box">
                         Practice Scheduler and Calendar
                         <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678116-calendar-512.png" alt="icon" className='feature-icon' />
                     </Link>
