@@ -80,7 +80,7 @@ const CoachCommunication = () => {
     const navigate = useNavigate();
 
     const handleBack = () => {
-        navigate("/admin");
+        navigate("/coach");
     };
 
     const handleChange = (event) => {
