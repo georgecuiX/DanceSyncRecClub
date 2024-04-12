@@ -17,6 +17,9 @@ const WelcomeScreen = () => {
           <Link to="/login" className='login-button transition hover:bg-green-900'>
             <p>Member Login</p>
           </Link>
+          <Link to="/coach-login" className='login-button transition hover:bg-red-900'>
+            <p>Coach Login</p>
+          </Link>
           <Link to="/admin-login" className='login-button transition hover:bg-red-900'>
             <p>Admin Login</p>
           </Link>

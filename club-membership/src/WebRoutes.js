@@ -10,6 +10,8 @@ import SchedulePractice from './pages/SchedulePractice';
 import PracticeCalendar from './pages/PracticeCalendar';
 import { PracticeProvider } from './pages/PracticeContext'; 
 import PracticeDetails from './pages/PracticeDetails';
+import CoachHomePage from './pages/CoachHomePage';
+import { CoachLogin } from './pages/CoachLogin';
 import CommunicationCenter from './pages/CommunicationCenter';
 import Notifications from './pages/Notifications';
 
@@ -28,6 +30,8 @@ export const WebRoutes = () => {
                     <Route path='/schedulePractice' element={<SchedulePractice />} />
                     <Route path='/practiceCalendar' element={<PracticeCalendar />} />
                     <Route path='/practiceDetails' element={<PracticeDetails />} />
+                    <Route path='/coach-login' element={<CoachLogin />} />
+                    <Route path='/coach' element={<CoachHomePage />} /> 
                     <Route path='/practiceDetails' element={<PracticeDetails />} />
                     <Route path='/communication' element={<CommunicationCenter />} />
                     <Route path='/notifications' element={<Notifications />} />
