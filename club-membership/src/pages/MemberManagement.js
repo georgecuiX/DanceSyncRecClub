@@ -2,10 +2,16 @@ import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MembersManagement = () => {
     
     const [members, setMembers] = useState([]);
+    const navigate = useNavigate();
+
+    const handleBack = () => {
+        navigate(-1);
+    };
 
     const fetchMembers = async () => {
         try {
@@ -157,6 +163,15 @@ const MembersManagement = () => {
                         </form>
                     </div>
                 </div>
+            </div>
+            <div className="flex items-center justify-center mt-4">
+                <button
+                    type="button"
+                    className="px-12 py-8 rounded-xl bg-slate-400 border hover:bg-slate-500 transition border-none"
+                    onClick={handleBack}
+                >
+                    ⬅
+                </button>
             </div>
             <div className='absolute bottom-0'>
                 <Footer />
