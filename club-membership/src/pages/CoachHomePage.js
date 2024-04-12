@@ -24,7 +24,7 @@ const CoachHomePage = () => {
                         User Role Management
                         <img src="https://cdn-icons-png.flaticon.com/512/5151/5151145.png" alt="icon" className='feature-icon' />
                     </Link>
-                    <Link to="/messageSender" className="feature-box">
+                    <Link to="/coach-communication" className="feature-box">
                         Communication Center
                         <img src={Communication} alt="icon" className='feature-icon' />
                     </Link>

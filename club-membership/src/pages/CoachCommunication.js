@@ -5,7 +5,7 @@ import "../styles/index.css";
 import Footer from "../components/Footer";
 import axios from "axios";
 
-const CommunicationCenter = () => {
+const CoachCommunication = () => {
     const [errorMessage, setErrorMessage] = useState("");
     const [successMessage, setSuccessMessage] = useState("");
     const [messages, setMessages] = useState([]);
@@ -34,7 +34,7 @@ const CommunicationCenter = () => {
 
         var { sender, message } = messageInfo;
 
-        sender += " (Admin)";
+        sender += " (Coach)";
 
         axios
             .post("http://localhost:3001/message-center", {
@@ -180,4 +180,4 @@ const CommunicationCenter = () => {
     );
 };
 
-export default CommunicationCenter;
+export default CoachCommunication;
