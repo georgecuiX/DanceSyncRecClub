@@ -32,14 +32,13 @@ export const PracticeProvider = ({ children }) => {
     );
   };
 
-  const updateMembers = (id, members) => {
+  const updateMembers = (id, newMembers) => {
     setPractices(prevPractices =>
         prevPractices.map(practice =>
-            practice.id === id ? { ...practice, members } : practice
+            practice.id === id ? { ...practice, members: Array.isArray(newMembers) ? newMembers : [newMembers] } : practice
         )
     );
-    showPopupMessage("Members updated successfully.");
-  };  
+  };
 
   const showPopupMessage = (message) => {
     setPopupMessage(message);
