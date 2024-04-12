@@ -24,6 +24,13 @@ let adminDB = new sqlite3.Database('adminpass.db', (err) => {
     console.log('connected to the admin database');
 });
 
+let coachDB = new sqlite3.Database('coachpass.db', (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('connected to the coach database');
+});
+
 // Endpoint for member login
 app.post('/validate-member-password', async (req, res) => {
     const { username, password } = req.body;
@@ -60,6 +67,23 @@ app.post('/validate-admin-password', async (req, res) => {
     });
 });
 
+app.post('/validate-coach-password', async (req, res) => {
+    const { username, password } = req.body;
+
+    coachDB.all(`SELECT * FROM coachpass WHERE username = '${username}' AND password = '${password}'`, (err, rows) => {
+        if (err) {
+            console.error(err);
+            res.status(500).send({ error: 'An error occurred while processing your request' });
+        } else {
+            if (rows.length > 0) {
+                res.send({ validation: 'coach' });
+            } else {
+                res.send({ validation: false });
+            }
+        }
+    });
+});
+
 // Registration endpoint
 app.post('/register', (req, res) => {
     const { firstName, lastName, email, username, password, role } = req.body;
@@ -85,14 +109,38 @@ app.post('/register', (req, res) => {
         });
     });
 
-    Promise.all([checkMember, checkAdmin])
-        .then(([memberRows, adminRows]) => {
-            if (memberRows.length > 0 || adminRows.length > 0) {
+    const checkCoach = new Promise((resolve, reject) => {
+        coachDB.all(`SELECT * FROM coachpass WHERE username = ?`, [username], (err, rows) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(rows);
+            }
+        });
+    });
+
+    Promise.all([checkMember, checkAdmin, checkCoach])
+        .then(([memberRows, adminRows, coachRows]) => {
+            if (memberRows.length > 0 || adminRows.length > 0 || coachRows.length > 0) {
                 // Username already exists, send error response
                 res.status(400).send({ error: 'Username already taken.' });
             } else {
                 // Choose the appropriate database based on role
-                const database = role === 'member' ? memberDB : adminDB;
+                let database;
+                switch (role) {
+                    case 'member':
+                        database = memberDB;
+                        break;
+                    case 'admin':
+                        database = adminDB;
+                        break;
+                    case 'coach':
+                        database = coachDB;
+                        break;
+                    default:
+                        res.status(400).send({ error: 'Invalid role specified' });
+                        return; // Exit the function early if the role is not recognized
+}
 
                 // Insert the user data into the selected database
                 database.run(`INSERT INTO ${role}pass (username, password) VALUES (?, ?)`,

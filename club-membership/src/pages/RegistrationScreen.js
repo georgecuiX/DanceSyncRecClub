@@ -45,7 +45,9 @@ const RegistrationScreen = () => {
                 navigate('/member');
             } else if (role === 'admin') {
                 navigate('/admin');
-            }
+            } else if (role === 'coach') {
+              navigate('/coach');
+          }
         })
         .catch(error => {
             console.error('Error:', error);
@@ -129,34 +131,47 @@ const RegistrationScreen = () => {
                     required />
                 </label>
                 <br />
-                <label className='flex ml-6'>
-                  <div className='mr-28'>
-                    <input
-                      className='radio'
-                      type="radio"
-                      id="member"
-                      name="role"
-                      value="member"
-                      checked={formState.role === "member"}
-                      onChange={handleChange}
-                      required
-                    />
-                    <label htmlFor="member">Member</label>
-                  </div>
-                  <div>
-                    <input
-                      className='radio'
-                      type="radio"
-                      id="admin"
-                      name="role"
-                      value="admin"
-                      checked={formState.role === "admin"}
-                      onChange={handleChange}
-                      required
-                    />
-                    <label htmlFor="admin">Admin</label>
-                  </div>
-                </label>
+                <label className='flex justify-between w-full max-w-xs'>
+              <div>
+                <input
+                  className='radio'
+                  type="radio"
+                  id="member"
+                  name="role"
+                  value="member"
+                  checked={formState.role === "member"}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="member">Member</label>
+              </div>
+              <div>
+                <input
+                  className='radio'
+                  type="radio"
+                  id="coach"
+                  name="role"
+                  value="coach"
+                  checked={formState.role === "coach"}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="coach">Coach</label>
+              </div>
+              <div>
+                <input
+                  className='radio'
+                  type="radio"
+                  id="admin"
+                  name="role"
+                  value="admin"
+                  checked={formState.role === "admin"}
+                  onChange={handleChange}
+                  required
+                />
+                <label htmlFor="admin">Admin</label>
+              </div>
+            </label>
               </div>
               <br />
               <div className='flex justify-center'>

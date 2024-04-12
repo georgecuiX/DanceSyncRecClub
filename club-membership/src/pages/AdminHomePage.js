@@ -39,7 +39,7 @@ const AdminHomePage = () => {
                     </Link>
                 </div>
                 <div className='absolute bottom-0'>
-                    <Footer />
+                <Footer />
                 </div>
             </div>
         </div>
