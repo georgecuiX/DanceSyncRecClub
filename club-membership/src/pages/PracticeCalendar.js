@@ -27,7 +27,7 @@ const PracticeCalendar = ({ practiceDates = [] }) => {
     } else if (user.role === 'admin') {
       navigate('/admin');
     } else {
-      navigate('/'); // Default back navigation
+      navigate(-1); // Default back navigation
     }
   };
 
