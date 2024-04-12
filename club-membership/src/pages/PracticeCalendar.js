@@ -26,9 +26,7 @@ const PracticeCalendar = ({ practiceDates = [] }) => {
       navigate('/coach');
     } else if (user.role === 'admin') {
       navigate('/admin');
-    } else {
-      navigate(-1); // Default back navigation
-    }
+    } 
   };
 
   const handleDayClick = (day) => {
