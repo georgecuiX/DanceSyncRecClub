@@ -24,6 +24,23 @@ export const PracticeProvider = ({ children }) => {
       setSelectedPractice(practicesForDay);
   };
 
+  const assignCoach = (id, coachUsername) => {
+    setPractices(prevPractices => 
+        prevPractices.map(practice => 
+            practice.id === id ? { ...practice, coach: coachUsername } : practice
+        )
+    );
+  };
+
+  const updateMembers = (id, members) => {
+    setPractices(prevPractices =>
+        prevPractices.map(practice =>
+            practice.id === id ? { ...practice, members } : practice
+        )
+    );
+    showPopupMessage("Members updated successfully.");
+  };  
+
   const showPopupMessage = (message) => {
     setPopupMessage(message);
     setShowPopup(true);
@@ -32,7 +49,7 @@ export const PracticeProvider = ({ children }) => {
 
   // Include selectedPractice and selectPractice in the context provider value
   return (
-    <PracticeContext.Provider value={{ practices, addPractice, removePractice, selectedPractice, selectPractice, showPopup, popupMessage, showPopupMessage }}>
+    <PracticeContext.Provider value={{ practices, addPractice, removePractice, selectedPractice, assignCoach, updateMembers, selectPractice, showPopup, popupMessage, showPopupMessage }}>
       {children}
     </PracticeContext.Provider>
   );

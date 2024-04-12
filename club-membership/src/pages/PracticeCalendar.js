@@ -4,11 +4,13 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { useNavigate } from 'react-router-dom';
 import { usePractices } from './PracticeContext'
+import { useUser } from './UserContext';
 
 const PracticeCalendar = ({ practiceDates = [] }) => {
   const { practices, selectPractice, showPopup, popupMessage } = usePractices();
   const [currentMonth, setCurrentMonth] = useState(new Date());
   const navigate = useNavigate();
+  const { user } = useUser();
 
   const startMonth = startOfWeek(startOfMonth(currentMonth));
   const endMonth = endOfWeek(endOfMonth(currentMonth));
@@ -17,7 +19,16 @@ const PracticeCalendar = ({ practiceDates = [] }) => {
   const isPracticeDay = (day) => practices.some((practice) => practice.date === format(day, 'yyyy-MM-dd'));
 
   const handleBack = () => {
-    navigate('/schedulePractice'); // Navigate back to the WelcomeScreen
+    // Conditional navigation based on the user's role
+    if (user.role === 'member') {
+      navigate('/schedulePractice');
+    } else if (user.role === 'coach') {
+      navigate('/coach');
+    } else if (user.role === 'admin') {
+      navigate('/admin');
+    } else {
+      navigate('/'); // Default back navigation
+    }
   };
 
   const handleDayClick = (day) => {

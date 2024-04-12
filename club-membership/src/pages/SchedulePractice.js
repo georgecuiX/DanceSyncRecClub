@@ -7,27 +7,27 @@ import Footer from '../components/Footer';
 import { Link, useNavigate } from 'react-router-dom';
 import { usePractices } from './PracticeContext'
 
-// Assuming you've got the list of coaches as before
-// CHANGE THIS WHEN DATABASE OF COACHES IS CREATED
-const coaches = [
-  { id: 1, name: 'Coach Carter' },
-  { id: 2, name: 'Coach Taylor' },
-  { id: 3, name: 'Coach Dale' },
-  { id: 4, name: 'Coach Bombay' },
-];
+// // Assuming you've got the list of coaches as before
+// // CHANGE THIS WHEN DATABASE OF COACHES IS CREATED
+// const coaches = [
+//   { id: 1, name: 'Coach Carter' },
+//   { id: 2, name: 'Coach Taylor' },
+//   { id: 3, name: 'Coach Dale' },
+//   { id: 4, name: 'Coach Bombay' },
+// ];
 
 const SchedulePractice = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [startTime, setStartTime] = useState(setHours(setMinutes(new Date(), 0), 8));
   const [endTime, setEndTime] = useState(setHours(setMinutes(new Date(), 0), 9)); // Initialize to one hour later as an example
-  const [selectedCoach, setSelectedCoach] = useState('');
+  // const [selectedCoach, setSelectedCoach] = useState('');
   const { addPractice } = usePractices();
 
   // Handling changes in date, start time, end time, and selected coach
   const handleDateChange = (date) => setSelectedDate(date);
   const handleStartTimeChange = (time) => setStartTime(time);
   const handleEndTimeChange = (time) => setEndTime(time);
-  const handleCoachChange = (e) => setSelectedCoach(e.target.value);
+  // const handleCoachChange = (e) => setSelectedCoach(e.target.value);
   const [showPopup, setShowPopup] = useState(false); // State to control pop-up visibility
 
 
@@ -35,7 +35,8 @@ const SchedulePractice = () => {
     e.preventDefault();
   
     // Validation checks
-    if (!selectedDate || !startTime || !endTime || !selectedCoach) {
+    // if (!selectedDate || !startTime || !endTime || !selectedCoach) {
+    if (!selectedDate || !startTime || !endTime) {
       alert("Please fill in all the fields.");
       return;
     }
@@ -49,7 +50,7 @@ const SchedulePractice = () => {
       date: format(selectedDate, 'yyyy-MM-dd'),
       startTime: format(startTime, 'HH:mm'),
       endTime: format(endTime, 'HH:mm'),
-      coach: selectedCoach
+      // coach: selectedCoach
     });
   
     // Show the pop-up notification
@@ -59,23 +60,24 @@ const SchedulePractice = () => {
     setTimeout(() => {
       setShowPopup(false);
     }, 5000); // Show popup for 5 seconds
-  
-    console.log(`Practice scheduled on: ${format(selectedDate, 'PPP')} from ${format(startTime, 'p')} to ${format(endTime, 'p')} with ${selectedCoach}`);
+
+    console.log(`Practice scheduled on: ${format(selectedDate, 'PPP')} from ${format(startTime, 'p')} to ${format(endTime, 'p')}`);
+    // console.log(`Practice scheduled on: ${format(selectedDate, 'PPP')} from ${format(startTime, 'p')} to ${format(endTime, 'p')} with ${selectedCoach}`);
     // Here, you would typically proceed with backend integration or further state updates
   };  
   
   // In your form, add the required attribute to the <select> element for coach selection
-  <select
-    value={selectedCoach}
-    onChange={handleCoachChange}
-    required  // Make selection mandatory
-    className="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
-  >
-    <option value="">Select a Coach</option>
-    {coaches.map((coach) => (
-      <option key={coach.id} value={coach.name}>{coach.name}</option>
-    ))}
-  </select>
+  // <select
+  //   value={selectedCoach}
+  //   onChange={handleCoachChange}
+  //   required  // Make selection mandatory
+  //   className="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
+  // >
+  //   <option value="">Select a Coach</option>
+  //   {coaches.map((coach) => (
+  //     <option key={coach.id} value={coach.name}>{coach.name}</option>
+  //   ))}
+  // </select>
   
 
   const navigate = useNavigate(); // Create an instance of navigate
@@ -94,7 +96,7 @@ const SchedulePractice = () => {
             <p>Practice scheduled successfully!</p>
             <p>Date: {format(selectedDate, 'PPP')}</p>
             <p>Time: From {format(startTime, 'p')} to {format(endTime, 'p')}</p>
-            <p>Coach: {selectedCoach}</p>
+            {/* <p>Coach: {selectedCoach}</p> */}
         </div>
         )}
         <h2 className="text-2xl font-bold mb-4">Schedule Practice</h2>
@@ -141,20 +143,20 @@ const SchedulePractice = () => {
             />
           </div>
           {/* Coach Selector */}
-          <div className="mb-6">
+          {/* <div className="mb-6">
             <label className="block text-gray-700 text-sm font-bold mb-2">Select Coach:</label>
             <select
               value={selectedCoach}
               onChange={handleCoachChange}
               className="shadow border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline"
             >
-              <option value="">Select a Coach</option>
+              <option value="">Select a Coach</option> */}
               {/* CHANGE THIS WHEN DATABASE OF COACHES IS ADDED*/}
-              {coaches.map((coach) => (
+              {/* {coaches.map((coach) => (
                 <option key={coach.id} value={coach.name}>{coach.name}</option>
               ))}
             </select>
-          </div>
+          </div> */}
           <button type="button" className='px-4 py-4 rounded-xl bg-slate-400 border w-1/5 hover:bg-slate-500 transition' onClick={handleBack}>⬅</button>
           <button type="submit" className='px-6 py-4 rounded-xl bg-yellow-300 border w-1/3 ml-20 hover:bg-green-200 transition'>Schedule</button>
           <div className="flex justify-center w-full mt-4">

@@ -4,6 +4,7 @@ import Navbar from '../components/Navbar';
 import '../styles/index.css'
 import Dancers from '../assets/dancers.png'
 import axios from 'axios';
+import { useUser } from './UserContext';
 
 export const CoachLogin = () => {
     const [credentials, setCredentials] = useState({
@@ -14,6 +15,8 @@ export const CoachLogin = () => {
     const [errorMessage, setErrorMessage] = useState('');
 
     const navigate = useNavigate(); // Step 2: Create an instance of navigate
+
+    const { setUser } = useUser(); 
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -33,7 +36,12 @@ export const CoachLogin = () => {
         axios.post('http://localhost:3001/validate-coach-password', { username, password })
             .then(res => {
                 if (res.data.validation) {
-                    navigate('/coach');
+                    setUser({ // Set the user context state
+                        isAuthenticated: true,
+                        role: 'coach',
+                        username: username
+                    });
+                    navigate('/coach'); // Navigate to the coach's homepage
                 } else {
                     setErrorMessage('Incorrect username or password');
                 }

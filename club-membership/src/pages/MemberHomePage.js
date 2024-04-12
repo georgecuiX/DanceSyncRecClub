@@ -12,9 +12,9 @@ const MemberHomePage = () => {
             <Navbar />
             <div className='flex flex-col mt-8'>
                 <div className="grid grid-flow-row grid-cols-3 w-full justify-items-center gap-y-16 px-40">
-                    <Link to="/schedule" className="feature-box">
-                        Upcoming Practices
-                        <img src="https://cdn-icons-png.flaticon.com/512/6117/6117275.png" alt="icon" className='feature-icon' />
+                    <Link to="/schedulePractice" className="feature-box">
+                        Schedule Practice
+                        <img src="https://cdn0.iconfinder.com/data/icons/small-n-flat/24/678116-calendar-512.png" alt="icon" className='feature-icon' />
                     </Link>
                     <Link to="/paymentStatus" className="feature-box">
                         Payment Status and Options
