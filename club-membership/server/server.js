@@ -45,7 +45,7 @@ let coachDB = new sqlite3.Database('coachpass.db', (err) => {
     console.log('connected to the coach database');
 });
 
-let coachListDB = new sqlite3.Database('coaches.db', (err) => {
+let coachListDB = new sqlite3.Database('coachs.db', (err) => {
     if(err){
         console.log(err.message);
     }
@@ -145,7 +145,7 @@ app.post('/validate-coach-password', async (req, res) => {
 });
 
 app.get('/coach-list', (req, res) => {
-    coachListDB.all('SELECT * FROM coaches', (err, rows) => {
+    coachListDB.all('SELECT * FROM coachs', (err, rows) => {
         if (err) {
             console.error(err.message);
             res.status(500).send({ error: 'An error occurred while fetching coach list' });
@@ -161,7 +161,7 @@ app.post('/register', (req, res) => {
 
     // Check if the username already exists in both member and admin databases
     const checkMember = new Promise((resolve, reject) => {
-        memberDB.all(`SELECT * FROM memberpass WHERE username = ?`, [username, password], (err, rows) => {
+        memberDB.all(`SELECT * FROM memberpass WHERE username = ?`, [username], (err, rows) => {
             if (err) {
                 reject(err);
             } else {
@@ -171,7 +171,7 @@ app.post('/register', (req, res) => {
     });
 
     const checkAdmin = new Promise((resolve, reject) => {
-        adminDB.all(`SELECT * FROM adminpass WHERE username = ? AND password = ?`, [username], (err, rows) => {
+        adminDB.all(`SELECT * FROM adminpass WHERE username = ?`, [username], (err, rows) => {
             if (err) {
                 reject(err);
             } else {
@@ -262,7 +262,7 @@ app.get('/message-center', (req, res) => {
 });
 
 // Endpoint to fetch all coaches
-app.get('/coaches', (req, res) => {
+app.get('/coachs', (req, res) => {
     coachDB.all("SELECT username FROM coachpass", [], (err, rows) => {
         if (err) {
             console.error(err.message);
