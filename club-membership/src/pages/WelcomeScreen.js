@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hiphop from '../assets/hiphop.png';
 import Footer from '../components/Footer';
-import Dancers from '../assets/dancers.png'
 
 const WelcomeScreen = () => {
   return (
