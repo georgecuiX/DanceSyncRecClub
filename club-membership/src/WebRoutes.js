@@ -15,35 +15,37 @@ import { CoachLogin } from './pages/CoachLogin';
 import CommunicationCenter from './pages/CommunicationCenter';
 import Notifications from './pages/Notifications';
 import CoachCommunication from './pages/CoachCommunication';
-import MemberManagement from './pages/MemberManagement';
 import { PracticeProvider } from './pages/PracticeContext';
 import { UserProvider } from './pages/UserContext'; // Import the UserProvider
+import MemberManagement from './pages/MemberManagement';
 
 export const WebRoutes = () => {
     return (
-        <PracticeProvider> {/* Wrap Router with PracticeProvider */}
-            <Router>
-                <Routes>
-                    <Route path='/' element={<WelcomeScreen />} />
-                    <Route path='/login' element={<Login />} />
-                    <Route path='/admin-login' element={<AdminLogin />} />
-                    <Route path='/register' element={<RegistrationScreen />} />
-                    <Route path='/forgot' element={<ForgotPassword />} />
-                    <Route path='/member' element={<MemberHomePage />} />
-                    <Route path='/admin' element={<AdminHomePage />} />
-                    <Route path='/schedulePractice' element={<SchedulePractice />} />
-                    <Route path='/practiceCalendar' element={<PracticeCalendar />} />
-                    <Route path='/practiceDetails' element={<PracticeDetails />} />
-                    <Route path='/coach-login' element={<CoachLogin />} />
-                    <Route path='/coach' element={<CoachHomePage />} /> 
-                    <Route path='/practiceDetails' element={<PracticeDetails />} />
-                    <Route path='/communication' element={<CommunicationCenter />} />
-                    <Route path='/notifications' element={<Notifications />} />
-                    <Route path='/coach-communication' element={<CoachCommunication />} />
-                    <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
-                </Routes>
-            </Router>
-        </PracticeProvider>
+        <UserProvider> {/* Wrap everything with UserProvider to handle user data globally */}
+            <PracticeProvider> {/* Practice data management within UserProvider */}
+                <Router>
+                    <Routes>
+                        <Route path='/' element={<WelcomeScreen />} />
+                        <Route path='/login' element={<Login />} />
+                        <Route path='/admin-login' element={<AdminLogin />} />
+                        <Route path='/register' element={<RegistrationScreen />} />
+                        <Route path='/forgot' element={<ForgotPassword />} />
+                        <Route path='/member' element={<MemberHomePage />} />
+                        <Route path='/admin' element={<AdminHomePage />} />
+                        <Route path='/schedulePractice' element={<SchedulePractice />} />
+                        <Route path='/practiceCalendar' element={<PracticeCalendar />} />
+                        <Route path='/practiceDetails' element={<PracticeDetails />} />
+                        <Route path='/coach-login' element={<CoachLogin />} />
+                        <Route path='/coach' element={<CoachHomePage />} />
+                        <Route path='/communication' element={<CommunicationCenter />} />
+                        <Route path='/notifications' element={<Notifications />} />
+                        <Route path='/coach-communication' element={<CoachCommunication />} />
+                        <Route path='/member-management' element={<MemberManagement />} />
+                        <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
+                    </Routes>
+                </Router>
+            </PracticeProvider>
+        </UserProvider>
     );
 };
 

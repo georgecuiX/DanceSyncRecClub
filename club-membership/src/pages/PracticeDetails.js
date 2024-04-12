@@ -14,7 +14,7 @@ const PracticeDetails = () => {
     
     useEffect(() => {
         if (user.role === 'admin') {
-            axios.get('http://localhost:3001/coaches')
+            axios.get('http://localhost:3001/coachs')
                 .then(response => {
                     console.log(response.data); // Log to check the response data
                     setCoaches(response.data);
@@ -50,12 +50,23 @@ const PracticeDetails = () => {
         }
     };
 
-    // CHANGE THIS SO ANY MEMBER FROM DB CAN BE ADDED/REMOVED
-    const handleMemberUpdate = (newMembers) => {
-        updateMembers(selectedPractice.id, newMembers);
-        showPopupMessage(`Member ${newMembers} assigned successfully.`);
+    const handleMemberUpdate = (memberUsername, add = true) => {
+        let updatedMembers = selectedPractice.members || [];
+        if (add) {
+            // Add member if not already included
+            if (!updatedMembers.includes(memberUsername)) {
+                updatedMembers.push(memberUsername);
+                showPopupMessage(`Member ${memberUsername} added to practice.`);
+            }
+        } else {
+            // Remove member
+            updatedMembers = updatedMembers.filter(member => member !== memberUsername);
+            showPopupMessage(`Member ${memberUsername} removed from practice.`);
+        }
+        updateMembers(selectedPractice.id, updatedMembers);
         navigate('/practiceCalendar');
     };
+
 
     const practiceDate = selectedPractice?.date || '';
     const startTimeString = `${practiceDate}T${selectedPractice?.startTime}`;
@@ -71,6 +82,16 @@ const PracticeDetails = () => {
                     <p className="text-lg text-gray-600"><span className="font-bold">Date:</span> {selectedPractice.date}</p>
                     <p className="text-lg text-gray-600"><span className="font-bold">Time:</span> From {startTime} to {endTime}</p>
                     <p className="text-lg text-gray-600 mb-4"><span className="font-bold">Coach:</span> {selectedPractice.coach}</p>
+                    <ul>
+                        {selectedPractice.members && selectedPractice.members.map(member => (
+                            <li key={member} className="flex justify-between items-center">
+                                {member}
+                                <button onClick={() => handleMemberUpdate(member, false)} className="bg-red-500 hover:bg-red-700 text-white py-1 px-3 rounded">
+                                    Remove
+                                </button>
+                            </li>
+                        ))}
+                    </ul>
                     <button 
                         onClick={handleCancel} 
                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded shadow"
@@ -86,7 +107,7 @@ const PracticeDetails = () => {
                                 ))}
                             </select>
                             <button 
-                                 onClick={() => handleAssignCoach(document.querySelector('select').value)}
+                                onClick={() => handleAssignCoach(document.querySelector('select').value)}
                                 className="ml-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded shadow"
                             >
                                 Assign Coach
@@ -97,12 +118,12 @@ const PracticeDetails = () => {
                         <>
                             <select onChange={(e) => updateMembers(e.target.value)} className="ml-4 bg-white border border-gray-300 rounded shadow">
                                 <option>Select a member</option>
-                                {members.map((coach, index) => (
-                                    <option key={index} value={members.username}>{members.username}</option>
+                                {members.map((member, index) => (
+                                    <option key={index} value={member.username}>{member.username}</option>
                                 ))}
                             </select>
                             <button
-                                onClick={() => handleMemberUpdate(members)}
+                                onClick={() => handleMemberUpdate(document.querySelector('select').value)}
                                 className="mt-2 bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded shadow"
                             >
                                 Update Members
