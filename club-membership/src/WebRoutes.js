@@ -43,7 +43,14 @@ export const WebRoutes = () => {
                         <Route path='/coach-communication' element={<CoachCommunication />} />
                         <Route path='/member-management' element={<MemberManagement />} />
                         <Route path='/member-payment' element={<MemberPayment />} />
-                        <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
+                        <Route path='*' element={
+                        <div className=' overflow-y-hidden h-screen bg-black text-3xl text-white reddit-mono'>
+                            <h1>Page not found</h1>
+                            <img className='w-full h-64' src='https://www.icegif.com/wp-content/uploads/2022/01/icegif-962.gif' alt='error'/>
+                            <img className='w-full h-64' src='https://alphaomegaarmament.com/wp-content/uploads/2024/03/How-LeBron-James-became-a-TikTok-meme-%E2%80%98You-Are-My-Sunshine-5.webp' alt='error'/>
+                            <img className='w-full h-64' src='https://neonmusic.online/wp-content/uploads/2024/04/444-10-7.jpg' alt='error'/>
+                            <img className=' w-full h-64' src='https://i.kym-cdn.com/entries/icons/facebook/000/034/772/Untitled-1.jpg' alt='error'/>
+                        </div>} /> {/* Catch all other paths */}
                     </Routes>
                 </Router>
             </PracticeProvider>

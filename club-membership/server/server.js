@@ -287,7 +287,7 @@ app.get('/members', (req, res) => {
 });
 
 app.post('/message-center', (req, res) => {
-    const { sender, name, attendance, paid, email } = req.body;
+    const { sender, message } = req.body;
 
     messagesDB.run(`INSERT INTO messages (sender, message) VALUES (?, ?)`, [sender, message], (err) => {
         if (err) {
