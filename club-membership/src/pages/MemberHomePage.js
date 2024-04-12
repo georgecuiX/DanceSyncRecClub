@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import '../styles/index.css'
 import Footer from '../components/Footer';
-import Payment from '../assets/payment.png'
 
 const MemberHomePage = () => {
 
@@ -19,10 +18,6 @@ const MemberHomePage = () => {
                     <Link to="/practiceCalendar" className="feature-box">
                         Upcoming Practices
                         <img src="https://cdn-icons-png.flaticon.com/512/6117/6117275.png" alt="icon" className='feature-icon' />
-                    </Link>
-                    <Link to="/paymentStatus" className="feature-box">
-                        Payment Status and Options
-                        <img src={Payment} alt="icon" className='feature-icon' />
                     </Link>
                     <Link to="/attendance" className="feature-box">
                         Attendance
