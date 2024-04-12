@@ -24,6 +24,13 @@ let adminDB = new sqlite3.Database('adminpass.db', (err) => {
     console.log('connected to the admin database');
 });
 
+let messagesDB = new sqlite3.Database('messages.db', (err) => {
+    if (err) {
+        console.error(err.message);
+    }
+    console.log('Connected to the messages database');
+});
+
 // Endpoint for member login
 app.post('/validate-member-password', async (req, res) => {
     const { username, password } = req.body;
@@ -111,6 +118,33 @@ app.post('/register', (req, res) => {
             console.error(error);
             res.status(500).send({ error: 'An error occurred while processing your request' });
         });
+});
+
+app.get('/message-center', (req, res) => {
+    // Query all messages from the database
+    messagesDB.all('SELECT * FROM messages', (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send({ error: 'An error occurred while fetching messages' });
+        } else {
+            res.send(rows); // Send the messages as JSON response
+        }
+    });
+});
+
+
+app.post('/message-center', (req, res) => {
+    const { sender, message } = req.body;
+
+    messagesDB.run(`INSERT INTO messages (sender, message) VALUES (?, ?)`, [sender, message], (err) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send({ error: 'An error occurred while processing your request' });
+        } else {
+            console.log(`New message from ${sender} added to the database`);
+            res.sendStatus(200); // Send success response
+        }
+    });
 });
 
 

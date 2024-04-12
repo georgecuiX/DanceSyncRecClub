@@ -140,3 +140,11 @@ body {
     width: auto;
     margin-top: 2rem;
 }
+
+.msg-con{
+    height: 660px;
+    width: 45%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 2rem 1.5rem;
+}

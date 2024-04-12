@@ -10,6 +10,8 @@ import SchedulePractice from './pages/SchedulePractice';
 import PracticeCalendar from './pages/PracticeCalendar';
 import { PracticeProvider } from './pages/PracticeContext'; 
 import PracticeDetails from './pages/PracticeDetails';
+import CommunicationCenter from './pages/CommunicationCenter';
+import Notifications from './pages/Notifications';
 
 export const WebRoutes = () => {
     return (
@@ -26,6 +28,9 @@ export const WebRoutes = () => {
                     <Route path='/schedulePractice' element={<SchedulePractice />} />
                     <Route path='/practiceCalendar' element={<PracticeCalendar />} />
                     <Route path='/practiceDetails' element={<PracticeDetails />} />
+                    <Route path='/practiceDetails' element={<PracticeDetails />} />
+                    <Route path='/communication' element={<CommunicationCenter />} />
+                    <Route path='/notifications' element={<Notifications />} />
                     <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
                 </Routes>
             </Router>
