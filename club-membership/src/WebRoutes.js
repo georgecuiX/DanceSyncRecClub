@@ -19,6 +19,7 @@ import { PracticeProvider } from './pages/PracticeContext';
 import { UserProvider } from './pages/UserContext'; // Import the UserProvider
 import MemberManagement from './pages/MemberManagement';
 import MemberPayment from './pages/MemberPayment';
+import Attendance from './pages/Attendance';
 
 export const WebRoutes = () => {
     return (
@@ -43,6 +44,7 @@ export const WebRoutes = () => {
                         <Route path='/coach-communication' element={<CoachCommunication />} />
                         <Route path='/member-management' element={<MemberManagement />} />
                         <Route path='/member-payment' element={<MemberPayment />} />
+                        <Route path='/attendance' element={<Attendance />} />
                         <Route path='*' element={
                         <div className=' overflow-y-hidden h-screen bg-black text-3xl text-white reddit-mono'>
                             <h1>Page not found</h1>
