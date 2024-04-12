@@ -3,13 +3,16 @@ import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Hiphop from '../assets/hiphop.png';
 import Footer from '../components/Footer';
+import Dancers from '../assets/dancers.png'
 
 const WelcomeScreen = () => {
   return (
     <div className=" bg-white w-screen flex flex-col text-center">
       <Navbar />
-      <div className=' py-72 flex flex-row w-full bg-gray-600 items-center justify-around'>
-        <h1 className=' mt-6 text-white font-bold text-10xl rakkas bg-blue-900 w-full'>REC CLUB</h1>
+      <div className=' py-72 flex flex-row w-full bg-gray-600 items-center justify-around contain-content'>
+        <img className='absolute w-full h-full ' src="https://wallpapers.com/images/hd/dance-studio-background-ny1jrb561lvx59gx.jpg" alt='dancers' />
+        <div className='absolute w-full h-full bg-blue-800 bg-opacity-30' />
+        <h1 className=' mt-6 text-white font-bold text-10xl rakkas bg-blue-900 w-fit z-10'>REC CLUB</h1>
       </div>
       <div className=' bg-gray-400 py-20 flex justify-between flex-col'>
         <h1 className=' text-8xl text-blue-900 fancy'>Let's GO!</h1>
