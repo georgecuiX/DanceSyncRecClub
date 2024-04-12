@@ -15,6 +15,7 @@ import { CoachLogin } from './pages/CoachLogin';
 import CommunicationCenter from './pages/CommunicationCenter';
 import Notifications from './pages/Notifications';
 import CoachCommunication from './pages/CoachCommunication';
+import MemberManagement from './pages/MemberManagement';
 
 export const WebRoutes = () => {
     return (
@@ -37,6 +38,7 @@ export const WebRoutes = () => {
                     <Route path='/communication' element={<CommunicationCenter />} />
                     <Route path='/notifications' element={<Notifications />} />
                     <Route path='/coach-communication' element={<CoachCommunication />} />
+                    <Route path='/member-management' element={<MemberManagement />} />
                     <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
                 </Routes>
             </Router>
