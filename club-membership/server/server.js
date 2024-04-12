@@ -59,6 +59,13 @@ let messagesDB = new sqlite3.Database('messages.db', (err) => {
     console.log('Connected to the messages database');
 });
 
+let memberManageDB = new sqlite3.Database('membermanage.db', (err) => {
+    if(err){
+        console.log(err.message);
+    }
+    console.log('connected to member management database')
+});
+
 // Endpoint for member login
 app.post('/validate-member-password', async (req, res) => {
     const { username, password } = req.body;
@@ -253,7 +260,7 @@ app.get('/message-center', (req, res) => {
 
 
 app.post('/message-center', (req, res) => {
-    const { sender, message } = req.body;
+    const { sender, name, attendance, paid, email } = req.body;
 
     messagesDB.run(`INSERT INTO messages (sender, message) VALUES (?, ?)`, [sender, message], (err) => {
         if (err) {
@@ -261,6 +268,44 @@ app.post('/message-center', (req, res) => {
             res.status(500).send({ error: 'An error occurred while processing your request' });
         } else {
             console.log(`New message from ${sender} added to the database`);
+            res.sendStatus(200); // Send success response
+        }
+    });
+});
+
+app.get('/member-management-list', (req, res) => {
+    memberManageDB.all('SELECT * FROM membermanage', (err, rows) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send({ error: 'An error occurred while fetching member management list' });
+        } else {
+            res.send(rows); // Send the messages as JSON response
+        }
+    });
+});
+
+app.post('/member-management-list', (req, res) => {
+    const { name, attendance, paid, email } = req.body;
+
+    memberManageDB.run(`INSERT INTO membermanage (name, attendance, paid, email) VALUES (?, ?, ?, ?)`, [name, attendance, paid, email], (err) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send({ error: 'An error occurred while processing your request' });
+        } else {
+            console.log(`New member ${name} added to the management database`);
+            res.sendStatus(200); // Send success response
+        }
+    });
+});
+
+app.delete('/member-management-list/:name/:email', (req, res) => {
+    const { name, email } = req.params;
+    memberManageDB.run(`DELETE FROM membermanage WHERE name = ? AND email = ?`, [name, email], (err) => {
+        if (err) {
+            console.error(err.message);
+            res.status(500).send({ error: 'An error occurred while deleting the member' });
+        } else {
+            console.log(`Member with name ${name} and email ${email} deleted from the database`);
             res.sendStatus(200); // Send success response
         }
     });

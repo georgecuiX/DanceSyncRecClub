@@ -1,15 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import axios from "axios";
 
 const MembersManagement = () => {
-    const [members, setMembers] = useState([
-        { name: "John Doe", attendance: 8, paid: true, email: "helloworld@gmail.com" },
-        { name: "Jane Smith", attendance: 3, paid: false, email: "helloworld@gmail.com" },
-        { name: "Alice Johnson", attendance: 6, paid: true, email: "helloworld@gmail.com" },
-        { name: "Bob Brown", attendance: 4, paid: true, email: "helloworld@gmail.com" },
-        { name: "Emily Davis", attendance: 10, paid: true, email: "helloworld@gmail.com" }
-    ]);
+    
+    const [members, setMembers] = useState([]);
+
+    const fetchMembers = async () => {
+        try {
+            const response = await axios.get("http://localhost:3001/member-management-list");
+            setMembers(response.data);
+        } catch (error) {
+            console.error("Error fetching members:", error);
+        }
+    };
+    
+    const addMemberToDatabase = async (newMember) => {
+        try {
+            await axios.post("http://localhost:3001/member-management-list", newMember);
+        } catch (error) {
+            console.error("Error adding member:", error);
+        }
+    };
+
+    useEffect(() => {
+        fetchMembers();
+    }, []);
 
     const [sortDirections, setSortDirections] = useState({
         name: 1,
@@ -46,11 +63,20 @@ const MembersManagement = () => {
         toggleSortDirection("paid");
     };
 
-    const deleteRecord = (index) => {
-        const updatedMembers = [...members];
-        updatedMembers.splice(index, 1);
-        setMembers(updatedMembers);
+    const deleteRecord = async (index, name, email) => {
+        try {
+            // Remove the member from the frontend state
+            const updatedMembers = [...members];
+            updatedMembers.splice(index, 1);
+            setMembers(updatedMembers);
+    
+            // Delete the member from the backend database
+            await axios.delete(`http://localhost:3001/member-management-list/${encodeURIComponent(name)}/${encodeURIComponent(email)}`);
+        } catch (error) {
+            console.error("Error deleting record:", error);
+        }
     };
+    
 
     return (
         <div className=" bg-gray-700 h-screen overflow-scroll">
@@ -81,7 +107,7 @@ const MembersManagement = () => {
                                     <td className=" border-black p-3 text-center">{member.attendance}</td>
                                     <td className={`border-black p-3 text-center ${member.paid ? 'bg-green-200' : 'bg-red-200'}`}>{member.paid ? "Yes" : "No"}</td>
                                     <td className={` border-black p-3 text-center ${member.attendance >= 5 ? 'bg-orange-200' : ''}`}>{member.attendance >= 5 ? "10% off" : "No discount"}</td>
-                                    <td className=" border-black p-3 text-center bg-red-500 font-bold"><button onClick={() => deleteRecord(index)}>Delete</button></td>
+                                    <td className=" border-black p-3 text-center bg-red-500 font-bold"><button onClick={() => deleteRecord(index, member.name, member.email)}>Delete</button></td>
                                 </tr>
                             ))}
                         </tbody>
@@ -154,14 +180,13 @@ const MembersManagement = () => {
         const newEmail = document.getElementById("email").value;
         const newAttendance = parseInt(document.getElementById("attendance").value);
         const paidTrue = document.getElementById("paidTrue").checked; // Convert string to boolean
-        const newPaid = paidTrue ? true: false;
-        console.log(newPaid);
-        setMembers([
-            ...members,
-            { name: newName, email: newEmail, attendance: newAttendance, paid: newPaid }
-        ]);
+        const newPaid = paidTrue ? true : false;
+        const newMember = { name: newName, email: newEmail, attendance: newAttendance, paid: newPaid };
+        addMemberToDatabase(newMember);
+        setMembers([...members, newMember]);
         closePopup();
     }
+    
 };
 
 export default MembersManagement;

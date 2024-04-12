@@ -24,10 +24,6 @@ const MemberHomePage = () => {
                         Attendance
                         <img src="https://cdn-icons-png.flaticon.com/512/8999/8999099.png" alt="icon" className='feature-icon' />
                     </Link>
-                    <Link to="/profileManagement" className="feature-box">
-                        User Profile Management
-                        <img src="https://cdn-icons-png.freepik.com/512/1144/1144760.png" alt="icon" className='feature-icon' />
-                    </Link>
                     <Link to="/notifications" className="feature-box">
                         Notifications and Reminders
                         <img src="https://static-00.iconduck.com/assets.00/notification-icon-1842x2048-xr57og4y.png" alt="icon" className='feature-icon' />
