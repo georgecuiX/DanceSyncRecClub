@@ -21,7 +21,7 @@ const PracticeCalendar = ({ practiceDates = [] }) => {
   const handleBack = () => {
     // Conditional navigation based on the user's role
     if (user.role === 'member') {
-      navigate('/schedulePractice');
+      navigate('/member');
     } else if (user.role === 'coach') {
       navigate('/coach');
     } else if (user.role === 'admin') {

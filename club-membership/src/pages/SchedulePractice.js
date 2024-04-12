@@ -115,11 +115,6 @@ const SchedulePractice = () => {
           </div>
           <button type="button" className='px-4 py-4 rounded-xl bg-slate-400 border w-1/5 hover:bg-slate-500 transition' onClick={handleBack}>⬅</button>
           <button type="submit" className='px-6 py-4 rounded-xl bg-yellow-300 border w-1/3 ml-20 hover:bg-green-200 transition'>Schedule</button>
-          <div className="flex justify-center w-full mt-4">
-            <Link to="/practiceCalendar" className="text-blue-700 hover:text-blue-500 text-xl mr-4">
-                View Calendar
-            </Link>
-            </div>
         </form>
       </div>
       <Footer />
