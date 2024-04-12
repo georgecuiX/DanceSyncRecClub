@@ -16,7 +16,7 @@ const CoachHomePage = () => {
                         Upcoming Practices
                         <img src="https://cdn-icons-png.flaticon.com/512/6117/6117275.png" alt="icon" className='feature-icon' />
                     </Link>
-                    <Link to="/memberMangagement" className="feature-box">
+                    <Link to="/member-management" className="feature-box">
                         Member Management
                         <img src="https://static-00.iconduck.com/assets.00/member-icon-2048x2048-ia0jy9lz.png" alt="icon" className='feature-icon' />
                     </Link>
