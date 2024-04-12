@@ -18,6 +18,7 @@ import CoachCommunication from './pages/CoachCommunication';
 import { PracticeProvider } from './pages/PracticeContext';
 import { UserProvider } from './pages/UserContext'; // Import the UserProvider
 import MemberManagement from './pages/MemberManagement';
+import MemberPayment from './pages/MemberPayment';
 
 export const WebRoutes = () => {
     return (
@@ -41,6 +42,7 @@ export const WebRoutes = () => {
                         <Route path='/notifications' element={<Notifications />} />
                         <Route path='/coach-communication' element={<CoachCommunication />} />
                         <Route path='/member-management' element={<MemberManagement />} />
+                        <Route path='/member-payment' element={<MemberPayment />} />
                         <Route path='*' element={<h1>Page not found</h1>} /> {/* Catch all other paths */}
                     </Routes>
                 </Router>
