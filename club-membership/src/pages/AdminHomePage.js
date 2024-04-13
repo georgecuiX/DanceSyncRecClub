@@ -13,7 +13,7 @@ const AdminHomePage = () => {
             <Navbar />
             <div className='flex flex-col mt-8'>
                 <div className="grid grid-flow-row grid-cols-3 w-full justify-items-center gap-y-16 px-40">
-                    <Link to="/financial" className="feature-box">
+                    <Link to="/admin-finances" className="feature-box">
                         Financial Management & Reporting
                         <img src={Finance} alt="icon" className='feature-icon' />
                     </Link>
