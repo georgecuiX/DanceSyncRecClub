@@ -21,6 +21,7 @@ import MemberManagement from './pages/MemberManagement';
 import MemberPayment from './pages/MemberPayment';
 import AdminFinances from './pages/AdminFinances'
 import CurrentMonthPayables from './pages/CurrentMonthPayables'
+import Attendance from './pages/Attendance';
 
 export const WebRoutes = () => {
     return (
@@ -47,6 +48,7 @@ export const WebRoutes = () => {
                         <Route path='/member-payment' element={<MemberPayment />} />
                         <Route path='/admin-finances' element={<AdminFinances />} />
                         <Route path='/current-month-payables' element={<CurrentMonthPayables />} />
+                        <Route path='/attendance' element={<Attendance />} />
                         <Route path='*' element={
                         <div className=' overflow-y-hidden h-screen bg-black text-3xl text-white reddit-mono'>
                             <h1>Page not found</h1>
