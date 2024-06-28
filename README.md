@@ -10,22 +10,22 @@ Libraries & APIs: Context API, date-fns, React Router
 Deployment & Version Control: GitHub, GitHub Actions
 
 ## Functionality
-1) Track Club Finances
+### Track Club Finances
   - View income statements
   - Record monthly profits
   - Manage unpaid debts and accounts payable
 
-2) Log and Sort Members
+### Log and Sort Members
   - Log member attendance and payments
   - Sort members based on attendance frequency and payment status
   - Apply discounts and assess penalty fees
 
-3) User Interaction with the Application
+### User Interaction with the Application
   - Send practice details and reminders
-  Manage coach list and adjust practice schedule
-  Facilitate member payments and scheduling
+  - Manage coach list and adjust practice schedule
+  * Facilitate member payments and scheduling
 
-4) User Authentication and Interface
+### User Authentication and Interface
   - New member registration
   - Existing member login
   - Role-specific user interfaces
