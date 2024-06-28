@@ -23,7 +23,7 @@ DanceSync Club Manager is a comprehensive application designed to streamline the
 ### User Interaction with the Application
   - Send practice details and reminders
   - Manage coach list and adjust practice schedule
-  * Facilitate member payments and scheduling
+  - Facilitate member payments and scheduling
 
 ### User Authentication and Interface
   - New member registration
