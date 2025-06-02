@@ -1,4 +1,4 @@
-# DanceSync Rec Club
+# 🎭 Dance Sync Rec Club - Dance Management System
 
 https://github.com/georgecuiX/DanceSyncRecClub/assets/89486336/9ea51440-55c2-4243-a2bc-e7a0f262955e
 
