@@ -46,9 +46,4 @@ DanceSync Rec Club is a full-stack dance club management system that brings the 
 - Payment history and status
 - Automated discount calculations
 
-### User Authentication and Interface
-  - New member registration
-  - Existing member login
-  - Role-specific user interfaces
-
 ## Tech Stack
