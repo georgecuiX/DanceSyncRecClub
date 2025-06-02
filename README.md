@@ -62,13 +62,43 @@ DanceSync Rec Club is a full-stack dance club management system that brings the 
 - **CORS** - Cross-origin resource sharing
 - **Nodemon** - Development auto-restart utility
 
+### Database Schema
+The application uses SQLite with the following main tables:
+- _memberpass_ / _coachpass_ / _adminpass_ - Authentication credentials
+- _members_ / _coachs_ / _admins_ - User profiles
+- _messages_ - Communication messages
+- _membermanage_ - Member management records
+
 ## 🛠️ Installation & Setup
 ### Prerequisites
 - Node.js (v14 or higher)
 - npm or yarn package manager
 
+### Installation Steps
 **1. Clone the repository**
 ```
 git clone https://github.com/yourusername/rec-club.git
 cd rec-club/club-membership
+```
+
+**2. Install Frontend Dependancies**
+```
+npm install
+```
+
+**3. Install Backend Dependancies**
+```
+cd server
+npm install
+```
+
+**4. Start the Backend Server**
+```
+npm run dev
+```
+
+**5. Start the Frontend Application** (in a new terminal)
+```
+cd ..
+npm start
 ```
