@@ -47,3 +47,28 @@ DanceSync Rec Club is a full-stack dance club management system that brings the 
 - Automated discount calculations
 
 ## Tech Stack
+### Frontend
+- **React 18.2** - UI library for building interactive interfaces
+- **React Router DOM** - Client-side routing
+- **Tailwind CSS** - Utility-first CSS framework
+- **React DatePicker** - Date and time selection
+- **Axios** - HTTP client for API requests
+- **date-fns** - Modern JavaScript date utility library
+
+### Backend
+- **Node.js** - JavaScript runtime
+- **Express.js** - Web application framework
+- **SQLite3** - Lightweight database engine
+- **CORS** - Cross-origin resource sharing
+- **Nodemon** - Development auto-restart utility
+
+## 🛠️ Installation & Setup
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn package manager
+
+**1. Clone the repository**
+```
+git clone https://github.com/yourusername/rec-club.git
+cd rec-club/club-membership
+```
