@@ -7,40 +7,48 @@
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
 </div>
 <div align="center">
-  <h3>💃 Where Every Step Brings Us Closer Together 🕺</h3>
   <p><em>A comprehensive web application for managing dance club activities, memberships, and finances</em></p>
 </div>
 
 https://github.com/georgecuiX/DanceSyncRecClub/assets/89486336/9ea51440-55c2-4243-a2bc-e7a0f262955e
 
-## Description
+## 🌟 Overview
 
-DanceSync Club Manager is a comprehensive application designed to streamline the management of a small amateur dance club. This application handles the club’s financial and operational tasks, including member attendance tracking, payment processing, managing regular expenditures, and scheduling. Key features include alerting administrators to members with outstanding payments, sending automated reminders to members about upcoming practice sessions, and providing detailed financial reports.
+DanceSync Rec Club is a full-stack dance club management system that brings the joy of dance and community together in one seamless platform. Built with modern web technologies, it provides an intuitive interface for members, coaches, and administrators to manage practices, track attendance, handle payments, and foster communication within the dance community.
 
-## Tech Stack
-- Frontend: React, JavaScript, Tailwind CSS, Axios
-- Backend: Node.js, Express.js, CORS Middleware
-- Database: SQLite
-- Libraries & APIs: Context API, date-fns, React Router
-- Deployment & Version Control: GitHub, GitHub Actions
+## ✨ Features
+### 👥 Multi-Role Authentication System
+- **Members** - Schedule practices, track attendance, receive notifications
+- **Coaches** - Manage practice sessions, update member lists, communicate with the club
+- **Administrators** - Oversee finances, manage memberships, coordinate schedules
 
-## Functionality
-### Track Club Finances
-  - View income statements
-  - Record monthly profits
-  - Manage unpaid debts and accounts payable
+### 📅 Smart Practice Management
+- Interactive calendar with practice scheduling
+- Real-time availability tracking
+- Automated coach assignment system
+- Flexible pay-as-you-go or advance payment options
 
-### Log and Sort Members
-  - Log member attendance and payments
-  - Sort members based on attendance frequency and payment status
-  - Apply discounts and assess penalty fees
+### 💰 Financial Dashboard
+- Comprehensive income statements
+- Monthly revenue and expense tracking
+- Member payment status monitoring
+- Discount management for frequent attendees
 
-### User Interaction with the Application
-  - Send practice details and reminders
-  - Manage coach list and adjust practice schedule
-  - Facilitate member payments and scheduling
+### 📢 Communication Hub
+- Centralized message board for announcements
+- Role-based messaging system
+- Real-time notifications and reminders
+- Community engagement features
+
+### 📊 Member Management
+- Detailed member database
+- Attendance tracking and reporting
+- Payment history and status
+- Automated discount calculations
 
 ### User Authentication and Interface
   - New member registration
   - Existing member login
   - Role-specific user interfaces
+
+## Tech Stack
