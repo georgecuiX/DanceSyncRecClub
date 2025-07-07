@@ -22,7 +22,7 @@ DanceSync Rec Club is a full-stack dance club management system that brings the 
 - **Coaches** - Manage practice sessions, update member lists, communicate with the club
 - **Administrators** - Oversee finances, manage memberships, coordinate schedules
 
-### 📅 Smart Practice Management
+### 📅 Smart Practice Management 
 - Interactive calendar with practice scheduling
 - Real-time availability tracking
 - Automated coach assignment system
@@ -46,7 +46,7 @@ DanceSync Rec Club is a full-stack dance club management system that brings the 
 - Payment history and status
 - Automated discount calculations
 
-## Tech Stack
+## 💻 Tech Stack
 ### Frontend
 - **React 18.2** - UI library for building interactive interfaces
 - **React Router DOM** - Client-side routing
